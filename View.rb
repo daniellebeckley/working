@@ -1,9 +1,9 @@
 
 require 'green_shoes'
-
+#newest version 9/21 @ 12:36
 class SetGui
     Shoes.app :title => "The Game of Set",
-    width: 1000, height: 750 do
+    width: 750, height: 500 do
     #@outerFlow = flow
     #@innerFlow = flow
     background green
@@ -15,17 +15,18 @@ class SetGui
     
     12.times do |i| #iterable card file names
     @cardList << "img#{i+1}.png"
+    #@cardList << controller.getCard
 end
 @checkList = []
 #Display Settings
 border(white)
-title("The Game of Set", size: 50, stroke: rgb(255, 255, 255), align: 'center')
+title("The Game of Set", size: 35, stroke: rgb(255, 255, 255), align: 'center')
 inscription('Brought to you by Team: Redacted', emphasis: 'italic', align: 'center')
 caption('SCORES', align: 'left', underline: 'single', weight: "bold")
-caption("Player One: #{@player1score}                       Player Two: #{@player2score}", weight: "ultralight")
-rect(left: 700, top: 200, width: 100, fill: rgb(0, 191, 255))
-rect(left: 710, top: 200, width: 100, fill: rgb(0, 191, 255))
-rect(left: 720, top: 200, width: 100, fill: rgb(0, 191, 255))
+caption("Player One: #{@player1score}            Player Two: #{@player2score}", weight: "ultralight")
+rect(left: 500, top: 200, width: 100, fill: rgb(0, 191, 255))
+rect(left: 510, top: 200, width: 100, fill: rgb(0, 191, 255))
+rect(left: 520, top: 200, width: 100, fill: rgb(0, 191, 255))
 #begin display logic
 #
 @dealButton = button "deal"
@@ -78,15 +79,15 @@ flow do #outer flow
                         # controller.removeCard(cardID)  #send which card was replaced using unique card ID string
                         #controller.removeCard(tempSet.pop)
                     end
-                    #need to increase player's points				
+                    #need to increase player's points
                 end
-            end			
+            end
             
         end
         @cardsOnTable = 12
         @dealButton.click do
             4.times do |i| #iterable card file names
-                @cardList << "img#{i+@cardsOnTable}.png" 
+                @cardList << "img#{i+@cardsOnTable}.png"
             end
             slot = @cardsOnTable +1
             #@innerFlow.append do
@@ -100,7 +101,7 @@ flow do #outer flow
                     
                 end
             end
-            @cardsOnTable += 3	
+            @cardsOnTable += 3
             
         end
     end #inner flow 4
